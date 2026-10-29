@@ -1,0 +1,103 @@
+"""
+File: main_runner.py
+Description: Main orchestration runner connecting all modules into a CLI menu.
+"""
+
+import sys
+import time
+
+import config
+from security import check_permission_or_request
+from ai_engine import detect_and_parse_apis, execute_with_failover
+from menu_manager import manage_parameters
+
+def main():
+    apis = []
+    current_api_idx = 0
+    github_repo = ""
+    
+    while True:
+        print("\n" + "="*50)
+        print("      AI CONTROLLER PRO MAX V2 - TERMUX (MULTI-FILE)")
+        print("="*50)
+        print(f"[*] Permission Status: {'GRANTED' if config.PERMISSION_GRANTED else 'NOT GRANTED'}")
+        print(f"[*] AI Pool: {len(apis)} models | Active: {apis[current_api_idx]['name'] if apis else 'None'}")
+        print(f"[*] GitHub Repo: {github_repo if github_repo else 'Not connected'}")
+        print("-"*50)
+        print("1. Load API keys, set aliases/tiers & connect GitHub")
+        print("2. Configure AI parameters (Individual or Sync)")
+        print("3. Execute single task (with automated Failover)")
+        print("4. Continuous Auto-loop mode")
+        print("5. Exit")
+        print("="*50)
+        
+        choice = input("Select an option (1-5): ").strip()
+        
+        if choice == '1':
+            if not check_permission_or_request():
+                continue
+            raw_keys = input("Enter API keys (comma-separated): ")
+            apis = detect_and_parse_apis(raw_keys)
+            github_repo = input("Enter GitHub repository URL: ").strip()
+            current_api_idx = 0
+            print(f"[OK] Setup completed! {config.CORE_PROTECTION}")
+            
+        elif choice == '2':
+            manage_parameters(apis)
+            
+        elif choice == '3':
+            if not apis:
+                print("[-] AI pool is empty! Please choose option 1 first.")
+                continue
+            if not check_permission_or_request():
+                continue
+                
+            target_dir = input("Target directory: ").strip()
+            task_desc = input("Task description: ").strip()
+            
+            prompt = f"Target Dir: {target_dir}. Task: {task_desc}. Strict: Only modify GitHub code, DO NOT delete or change core structure without permission."
+            
+            res, current_api_idx = execute_with_failover(apis, current_api_idx, prompt)
+            
+            if res:
+                print(f"\n[AI RESULT]:\n{res}\n")
+            
+            violation = input("[?] Did the AI exceed permissions or alter core files? (y/n): ").strip().lower()
+            if violation == 'y':
+                current_api_idx = (current_api_idx + 1) % len(apis)
+                print(f"[!] Switched to next AI: {apis[current_api_idx]['name']}")
+                
+        elif choice == '4':
+            if not apis:
+                print("[-] AI pool is empty!")
+                continue
+            if not check_permission_or_request():
+                continue
+                
+            print("[AUTO] Starting continuous execution loop...")
+            print("[*] Press Ctrl+C to stop.")
+            try:
+                loop = 1
+                while True:
+                    print(f"\n--- AUTO LOOP #{loop} ---")
+                    prompt = f"Auto check repo {github_repo}. Strict: Read-only check or safe patch, DO NOT delete anything without explicit confirmation."
+                    
+                    res, current_api_idx = execute_with_failover(apis, current_api_idx, prompt)
+                    if res:
+                        print(f"[DONE LOOP #{loop}] Summary: {res[:150]}...")
+                    else:
+                        print("[!] All APIs unresponsive. Retrying in a few seconds...")
+                        
+                    loop += 1
+                    time.sleep(3)
+            except KeyboardInterrupt:
+                print("\n[!] Auto-loop terminated by user.")
+                
+        elif choice == '5':
+            print("Exiting. Goodbye!")
+            sys.exit(0)
+        else:
+            print("[-] Invalid option. Please select between 1 and 5.")
+
+if __name__ == "__main__":
+    main()
