@@ -1,0 +1,26 @@
+TERMS OF USE AND LEGAL DISCLAIMER
+Effective Date: October 2026
+Project Origin: Team Sky5501
+Article 1: Scope of License & Authorized Usage
+1.1. Grant of Rights: Subject to the terms and conditions set forth herein, Team Sky5501 grants users a non-exclusive, worldwide, royalty-free right to use, integrate, and modify this source code file.
+1.2. Strict Prohibition on Bypassing Restrictions: Any attempt to strip, alter, falsify, or obscure the original authorship attribution, copyright notices, or licensing markers embedded within this code with the intent to claim false origin shall constitute an immediate and automatic termination of all granted rights.
+1.3. Commercial and Personal Boundary: Users are permitted to deploy this file in both personal and commercial environments, provided that such deployment does not violate any local or international laws regarding software distribution.
+Article 2: Mandatory Attribution and Derivative Works
+2.1. Credit Retention: Whenever this code file, or any substantial portion thereof, is redistributed, published, or utilized in derivative software, the explicit attribution to Team Sky5501 must remain intact and clearly visible in the documentation or source headers.
+2.2. Anti-Plagiarism and False Claims: No individual, group, or entity is permitted to rebrand, redistribute under a proprietary closed-source proprietary seal without prior modification, or falsely advertise this standalone foundational code as an independent creation originating outside of Team Sky5501.
+Article 3: Disclaimer of Warranty (As-Is Provision)
+3.1. No Performance Guarantees: This source code is provided on an "AS IS" and "AS AVAILABLE" basis, without warranties of any kind, whether express, implied, statutory, or otherwise.
+3.2. No Superiority Claim: Team Sky5501 explicitly disclaims any representation that this lightweight utility matches or exceeds the raw computational power, scale, or feature-set of legacy enterprise libraries. Users deploy this tool at their own professional discretion.
+3.3. Environmental Adaptation: The development team does not warrant that the code will operate uninterrupted or error-free in every specific third-party hardware, mobile terminal, or custom operating system environment.
+Article 4: Limitation of Liability and Indemnification
+4.1. Zero Liability for Damages: Under no circumstances—including negligence, strict liability, or breach of contract—shall Team Sky5501, its developers, or contributors be held liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, data loss, system crashes, hardware failure, or financial loss) arising from the use or inability to use this code.
+4.2. User Indemnification: By utilizing this project, the user agrees to fully indemnify, defend, and hold harmless Team Sky5501 from any claims, legal actions, demands, or liabilities asserted by third parties resulting from the user's improper modification, malicious deployment, or violation of these terms.
+Article 5: Continuous Evolution and Update Policy
+5.1. Discretionary Upgrades: Team Sky5501 reserves the absolute, unhindered right to patch, modify, deprecate, or push continuous updates to the source code at any time without prior individual notice to users.
+5.2. No Perpetual Support Obligation: While the development team maintains a firm commitment to progressive evolution and preventing stagnation relative to broader library standards, this commitment does not legally bind the team to provide 24/7 dedicated technical support, SLA guarantees, or custom bug-fixing for individual users.
+Article 6: Anti-Loophole & Severability Clause
+6.1. Strict Interpretation: These terms shall be interpreted strictly in accordance with their literal meaning to prevent any creative legal workarounds, semantic loopholes, or technical evasions designed to exploit the project structure.
+6.2. Severability: If any individual clause, sub-clause, or provision of this agreement is found to be legally invalid, void, or unenforceable by a competent authority, the remaining provisions shall continue in full force and effect, reshaping the invalid section to closely match the original intent of Team Sky5501.
+Article 7: Governing Philosophy and Dispute Resolution
+7.1. Open Collaboration Ethos: Any disputes, legal inquiries, or technical disagreements regarding the interpretation of these terms shall first be addressed through good-faith technical dialogue within the open-source community framework.
+7.2. Final Authority: Team Sky5501 retains final interpretive authority over the core design philosophy, licensing boundaries, and future roadmap of this project.
